@@ -1,4 +1,5 @@
 import dj_database_url
+from decouple import config
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -9,12 +10,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dq_y!l(_@2ap+1b7ho5l7742le8f^cy^_^e6d2=e=f7rj3uo8d'
+SECRET_KEY = config('SECRET_KEY', default='fallback-secret-key')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -66,14 +68,10 @@ WSGI_APPLICATION = 'accentarea.wsgi.application'
 
 # Replace the SQLite DATABASES configuration with PostgreSQL:
 # Replace the SQLite DATABASES configuration with PostgreSQL:
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://db_accentarea_legal_user:B4MIlrFuxtuZH2pxi4NFLc89Ic9Mk9Id@dpg-cu4eburqf0us7380dul0-a.oregon-postgres.render.com/db_accentarea',
-        conn_max_age=600
-    )
-}
 
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
