@@ -60,7 +60,7 @@ html.lb-disable-scrolling {
   top: 43%;
   left: 0;
   height: 25%;
-  width: 100%;
+  width: ;
   text-align: center;
   line-height: 0;
 }
@@ -78,7 +78,7 @@ html.lb-disable-scrolling {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
+  width: ;
   z-index: 10;
 }
 
