@@ -56,6 +56,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'accentarea.wsgi.application'
 
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-joseyawovi-accentarea-kpw4hcjtzii.ws-us117.gitpod.io'
+]
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -106,6 +110,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
