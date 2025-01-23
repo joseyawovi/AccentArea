@@ -66,8 +66,9 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://db_accentarea_legal_user:B4MIlrFuxtuZH2pxi4NFLc89Ic9Mk9Id@dpg-cu4eburqf0us7380dul0-a.oregon-postgres.render.com/db_accentarea',        conn_max_age=600    )
+    'default': dj_database_url.config(default='DATABASE_URL', conn_max_age=600)
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
